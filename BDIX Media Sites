@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BDIX SITES</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+
+ <style>
+a:link {color:#0066CC;} /* sets normal link color */
+a:visited {color:#CC33CC;} /* sets visited link color */
+a:active {color:#336666;} /* sets active link color */
+</style>
+
+  <body>
+
+    <div class="container-fluid">
+
+
+
+<div class="row">
+	
+		<div class="col-md-12">
+		<h1 class="text-center">
+					BDIX Media Sites / FILE SERVERS
+		</h1>
+		<h6 class="mt-2 text-center">
+					None of the Media sites shown here are actually Controlled from this server. The links are provided solely by googling. SEVEN NETWORKS BANGLADESH cannot be held responsible for what those sites posts, or any other actions from those external sites Owner. 
+		</h6>		
+		</div>
+		<div class="mt-4 col-md-4">
+
+
+		<h5 class="text-center">
+					BDIX Media Sites
+		</h5>
+
+
+
+<?php
+$urls = file('urllist.txt', FILE_IGNORE_NEW_LINES);
+
+foreach ($urls as $value){ 
+       if (isDomainAvailible($value))
+       {
+               echo '<span><a href='.$value.' target="_blank"style="color: green">'.$value.'</a></span><br>';
+       }
+       else
+       {
+               echo '<span><a href='.$value.' target="_blank"style="color: red">'.$value.'</a></span><br>';
+       }
+}
+?>
+
+
+
+
+
+
+
+</div>
+
+
+		<div class="mt-4 col-md-4">
+
+
+		<h5 class="text-center">
+					BDIX LIVE TV Sites
+		</h5>
+
+
+
+<?php
+$urls2 = file('urllist2.txt', FILE_IGNORE_NEW_LINES);
+
+foreach ($urls2 as $value2){ 
+       if (isDomainAvailible($value2))
+       {
+               echo '<span><a href='.$value2.' target="_blank"style="color: green">'.$value2.'</a></span><br>';
+       }
+       else
+       {
+               echo '<span><a href='.$value2.' target="_blank"style="color: red">'.$value2.'</a></span><br>';
+       }
+}
+
+?>
+
+
+
+
+
+
+		</div>
+
+
+		<div class="mt-4 col-md-4">
+
+		<h5 class="text-center">
+					GLOBAL STREAMING SITES
+		</h5>
+
+
+
+
+
+<?php
+$urls3 = file('urllist3.txt', FILE_IGNORE_NEW_LINES);
+
+foreach ($urls3 as $value3){ 
+       if (isDomainAvailible($value3))
+       {
+               echo '<span><a href='.$value3.' target="_blank"style="color: green">'.$value3.'</a></span><br>';
+       }
+       else
+       {
+               echo '<span><a href='.$value3.' target="_blank"style="color: red">'.$value3.'</a></span><br>';
+       }
+}
+
+?>
+
+
+
+
+
+
+		</div>
+		
+		
+		
+	</div>
+
+
+
+
+
+		</div>
+
+<?php
+       //returns true, if domain is availible, false if not
+       function isDomainAvailible($domain)
+       {
+               //check, if a valid url is provided
+               if(!filter_var($domain, FILTER_VALIDATE_URL))
+               {
+                       return false;
+               }
+
+               //initialize curl
+               $curlInit = curl_init($domain);
+               curl_setopt($curlInit,CURLOPT_CONNECTTIMEOUT,1);
+               curl_setopt($curlInit,CURLOPT_HEADER,true);
+               curl_setopt($curlInit,CURLOPT_NOBODY,true);
+               curl_setopt($curlInit,CURLOPT_RETURNTRANSFER,true);
+
+               //get answer
+               $response = curl_exec($curlInit);
+
+               curl_close($curlInit);
+
+               if ($response) return true;
+
+               return false;
+       }
+?>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
