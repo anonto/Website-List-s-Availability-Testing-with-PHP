@@ -1,7 +1,7 @@
 <?php
 
 
-//$urls = array("https://css-triscfszczxxzccks.com", "https://www.google.com", "https://css-triscfszczxxzccks.com");
+$urls = array("https://css-triscfszczxxzccks.com", "https://www.google.com", "https://css-triscfszczxxzccks.com");
 foreach ($urls as $value){ 
        if (isDomainAvailible($value))
        {
