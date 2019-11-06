@@ -15,12 +15,6 @@
 
   </head>
 
- <style>
-a:link {color:#0066CC;} /* sets normal link color */
-a:visited {color:#CC33CC;} /* sets visited link color */
-a:active {color:#336666;} /* sets active link color */
-</style>
-
   <body>
 
     <div class="container-fluid">
