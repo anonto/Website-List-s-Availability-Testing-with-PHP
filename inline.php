@@ -1,8 +1,8 @@
 <?php
 
 
-$cars = array("https://css-triscfszczxxzccks.com", "https://www.google.com", "https://css-triscfszczxxzccks.com");
-foreach ($cars as $value){ 
+//$urls = array("https://css-triscfszczxxzccks.com", "https://www.google.com", "https://css-triscfszczxxzccks.com");
+foreach ($urls as $value){ 
        if (isDomainAvailible($value))
        {
                echo '<span style="color:green;text-align:center;">'.$value.'</span><br>';
