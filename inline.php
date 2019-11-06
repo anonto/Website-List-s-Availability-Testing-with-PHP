@@ -5,11 +5,11 @@ $cars = array("https://css-triscfszczxxzccks.com", "https://www.google.com", "ht
 foreach ($cars as $value){ 
        if (isDomainAvailible($value))
        {
-               echo "Up and running!";
+               echo '<span style="color:green;text-align:center;">'.$value.'</span><br>';
        }
        else
        {
-               echo "Woops, nothing found there.";
+               echo "Woops, nothing found there.<br>";
        }
 }
        //returns true, if domain is availible, false if not
@@ -29,4 +29,12 @@ foreach ($cars as $value){
                curl_setopt($curlInit,CURLOPT_RETURNTRANSFER,true);
 
                //get answer
-         
+               $response = curl_exec($curlInit);
+
+               curl_close($curlInit);
+
+               if ($response) return true;
+
+               return false;
+       }
+?>
